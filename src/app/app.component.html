@@ -1,0 +1,12 @@
+<div class="d-flex flex-column h-100">
+
+  <div class="flex-grow-1 flex-shrink-1 bg-light">
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+
+  <div *ngIf="loading.isLoading" class="loader">
+    <app-loading></app-loading>
+  </div>
+</div>

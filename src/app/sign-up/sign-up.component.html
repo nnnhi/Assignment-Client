@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col col-md-6">
+            <h3>Sign up</h3>
+            <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="first-name">First Name: </label>
+                    <input id="first-name" class="form-control" type="text" formControlName="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name: </label>
+                    <input id="last-name" class="form-control" type="text" formControlName="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input id="email" class="form-control" type="email" formControlName="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="start-date">Date would like to start: </label>
+
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                            ngbDatepicker #d="ngbDatepicker" formControlName="startDate" [minDate]="minDate">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label for="activity">Activity: </label>
+                    <select id="activity" class="custom-select" formControlName="activityId">
+                        <option value="null" disabled>Choose your activity</option>
+                        <option *ngFor="let activity of activities" [ngValue]="activity.id">{{activity.name}}</option>
+                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="years-of-experience">Number of years of experience with this activity: </label>
+                    <input id="years-of-experience" class="form-control" type="number" min="0" 
+                        formControlName="numberOfYearsOfExperience">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="comments">Comments: </label>
+                    <input id="comments" class="form-control" type="text" formControlName="comments">
+                </div>
+                <small class="form-text text-muted">Complete the form to enable button.</small>
+                <button type="submit" [disabled]="!subscriptionForm.valid" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

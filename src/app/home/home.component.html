@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h3>Interested Persons Listing</h3>
+    <div class="d-sm-flex justify-content-between">
+      <div class="flex-fill bg-white mr-sm-2 p-4 mb-4 mb-sm-0">
+        <!-- <ul *ngIf="!error">
+          <li *ngFor="let movie of movies" class="mb-2">
+            {{ movie.Title }} ({{movie.Year}})
+            <button *ngIf="isLogined" type="button" class="btn btn-outline-secondary" (click)="nominate(movie)" [disabled]="!canNominate(movie)">Nominate</button>
+          </li>
+        </ul> -->
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Activity</th>
+                <th scope="col">Start Date</th>
+                <th scope="col"># of experience</th>
+                <th scope="col">Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let subscription of subscriptions">
+                <th scope="row">{{subscription.id}}</th>
+                <td>{{subscription.firstName}}</td>
+                <td>{{subscription.lastName}}</td>
+                <td>{{subscription.email}}</td>
+                <td>{{subscription.activity}}</td>
+                <td>{{subscription.startDate}}</td>
+                <td>{{subscription.numberOfYearsOfExperience}}</td>
+                <td>{{subscription.comments}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  
